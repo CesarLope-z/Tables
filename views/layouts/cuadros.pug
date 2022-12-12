@@ -1,0 +1,11 @@
+.tablas#tablas.espacioTablas
+    each cuadro in cuadros
+        a.tabla(href=`inicio/${cuadro.id}` style=`border: solid 2px ${cuadro.color};`)
+            .icono
+                if(cuadro.type==1)
+                    include ./icono1
+                if(cuadro.type==2)
+                    include ./icono2
+            .titulo 
+                h3= cuadro.name
+                

@@ -1,0 +1,44 @@
+extends ./layouts/index.pug
+block contenido
+    h1 Agregando 
+    .container 
+        if(errores)
+                each error in errores
+                    .adv.red
+                        p.color-red= error.mensaje
+        form.sombra.formulario2.text-center(method="post")
+            h3 Creando cuadro
+            .nombre 
+                h5 Titulo del cuadro 
+                input#name(type="text", name="name",value= name)
+            .type.d-flex.justify-content-around.m-4
+                .type1 
+                    include ./layouts/icono1
+                    input#table1(type="radio", name="icono", value="1")
+                .type1 
+                    include ./layouts/icono2
+                    input#table2(type="radio", name="icono", value="2")
+            .color 
+                h5 Selecciona el color del cuadro
+                input#color(type="color", name="color", value= color)
+            .dataOntype2
+                h5 Selecciona el numero de Columnas y Filas a agregar 
+                .filasYColumnas.d-flex.justify-content-around
+                    .cols 
+                        p Columnas
+                        input.text-center#columnas(type="number", name="columnas", min="1", max="9", value= columnas)
+                    .rows 
+                        p Filas
+                        input.text-center#filas(type="number", name="filas", min="1", max="20", value= filas)
+            .submit 
+                .view 
+                    a(href="#") Ver tabla previa 
+                        svg.icon.icon-tabler.icon-tabler-eye(xmlns='http://www.w3.org/2000/svg' width='36' height='36' viewbox='0 0 24 24' stroke-width='1.5' stroke='#ffffff' fill='none' stroke-linecap='round' stroke-linejoin='round')
+                            path(stroke='none' d='M0 0h24v24H0z' fill='none')
+                            circle(cx='12' cy='12' r='2')
+                            path(d='M22 12c-2.667 4.667 -6 7 -10 7s-7.333 -2.333 -10 -7c2.667 -4.667 6 -7 10 -7s7.333 2.333 10 7')
+
+                input.crearTabla(type="submit", value="Crear")
+        include ./layouts/carga
+     
+                

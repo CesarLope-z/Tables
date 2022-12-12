@@ -1,0 +1,20 @@
+extends ./layouts/index.pug
+block contenido
+    header 
+        h1 Tablas
+    body.container
+        .form
+            form.formulario.sombra
+                .buscarTable 
+                    input#buscarTabla(type="search", name="")
+                    //- textarea#no(name="", cols="30", rows="10") 
+                .butons.d-md-flex.justify-content-between.text-center
+                    a(href="/add").bttn#add Add 
+                    a(href="#").bttn#edit Edit
+                    a(href="#").bttn#delete Delete
+
+        include ./layouts/cuadros
+            
+    footer
+        p Todos los derechos reservados &copy 
+        p César López 2023

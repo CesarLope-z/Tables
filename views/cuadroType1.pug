@@ -1,0 +1,22 @@
+extends ./layouts/index.pug
+block contenido
+    body 
+        h1= cuadro.name 
+        .container 
+            .sombra.text-center
+                h5 Datos a mostrar 
+                p Asigna los valores a los campos que tu desees a los campos.
+                form.tablass(method="post")
+                    input(name="nombreTabla", value= cuadro.name, hidden='')
+                    input(name="colm", value= cuadro.columnas, hidden='')
+                    input(name="rows", value= cuadro.filas, hidden='')
+                    .d-flex.text-center.justify-content-center.p-3
+                        while cuadro.columnas > 0
+                            .x(hidden='')= filasCopy=cuadro.filas
+                            .fila 
+                                while filasCopy > 0
+                                    input.tab.p-2.m-2(type="text", name= `to${cuadro.columnas}${filasCopy--}Data`)
+                            .y(hidden='')= cuadro.columnas--
+                    input.p-2.m-3(type="submit", value="Terminar tabla")
+
+                        
